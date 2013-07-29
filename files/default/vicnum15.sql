@@ -1,0 +1,23 @@
+create table guessnumresults (idnum int(4) NOT NULL auto_increment PRIMARY KEY, name char(100), guess int(3) ZEROFILL, count int(2), tod TIMESTAMP );
+create table jottoresults (idnum int(4) NOT NULL auto_increment PRIMARY KEY, name char(100), guess char(5), count int(2), tod TIMESTAMP);
+create table unionresults (idnum int(4) NOT NULL auto_increment PRIMARY KEY, name char(100), unionquery char(150), tod TIMESTAMP );
+insert into guessnumresults (name,guess,count) values ("mk",123,9)
+insert into guessnumresults (name,guess,count) values ("joe",123,7)
+insert into guessnumresults (name,guess,count) values ("bob",123,7)
+insert into guessnumresults (name,guess,count) values ("john",123,9)
+insert into guessnumresults (name,guess,count) values ("ethz",123,4)
+insert into guessnumresults (name,guess,count) values ("f00",123,1337)
+insert into guessnumresults (name,guess,count) values ("fizz",123,8)
+insert into guessnumresults (name,guess,count) values ("mum",123,12)
+insert into guessnumresults (name,guess,count) values ("0hrn",123,12)
+insert into guessnumresults (name,guess,count) values ("kk",123,10)
+insert into jottoresults (name,guess,count) values ("ko", "guess", 15)
+insert into jottoresults (name,guess,count) values ("hurrican", "zzarb", 12)
+insert into jottoresults (name,guess,count) values ("heyhey", "wooot", 10)
+insert into jottoresults (name,guess,count) values ("1337H4x0r", "qwert", 10)
+insert into jottoresults (name,guess,count) values ("arch", "haxor", 32)
+insert into jottoresults (name,guess,count) values ("find the last name in the jotto file", "owasp", 23987)
+insert into jottoresults (name,guess,count) values ("test", "", 42)
+insert into jottoresults (name,guess,count) values ("eli", "pipin", 24)
+insert into jottoresults (name,guess,count) values ("push", "hackr", 21)
+insert into jottoresults (name,guess,count) values ("bit", "pwnme", 12)

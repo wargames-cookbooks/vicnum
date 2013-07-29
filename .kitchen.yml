@@ -1,0 +1,61 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
+
+platforms:
+- name: ubuntu-10.04
+  driver_config:
+    box: opscode-ubuntu-10.04
+    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
+- name: ubuntu-12.04
+  driver_config:
+    box: opscode-ubuntu-12.04
+    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
+
+suites:
+- name: "vicnum13"
+  run_list:
+  - recipe[vicnum]
+  - recipe[minitest-handler]
+  - recipe[vicnum_test]
+  attributes: {
+    mysql: {
+      server_root_password: vicnum,
+      server_debian_password: vicnum,
+      server_repl_password: = vicnum
+    },
+    vicnum: {
+      version: "vicnum13"
+    }
+  }
+- name: "vicnum14"
+  run_list:
+  - recipe[vicnum]
+  - recipe[minitest-handler]
+  - recipe[vicnum_test]
+  attributes: {
+    mysql: {
+      server_root_password: vicnum,
+      server_debian_password: vicnum,
+      server_repl_password: = vicnum
+    },
+    vicnum: {
+      version: "vicnum14"
+    }
+  }
+- name: "vicnum15"
+  run_list:
+  - recipe[vicnum]
+  - recipe[minitest-handler]
+  - recipe[vicnum_test]
+  attributes: {
+    mysql: {
+      server_root_password: vicnum,
+      server_debian_password: vicnum,
+      server_repl_password: = vicnum
+    },
+    vicnum: {
+      version: "vicnum15"
+    }
+  }
