@@ -35,38 +35,10 @@ Attributes
 ----------
 
 #### vicnum::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['vicnum']['version']</tt></td>
-    <td>String</td>
-    <td>Vicnum version to deploy</td>
-    <td><tt>vicnum15</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['vicnum']['path']</tt></td>
-    <td>String</td>
-    <td>Path where application will be deployed</td>
-    <td><tt>/opt/vicnum</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['vicnum']['server_name']</tt></td>
-    <td>String</td>
-    <td>Apache2 server name</td>
-    <td><tt>vicnum</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['vicnum']['server_aliases']</tt></td>
-    <td>String</td>
-    <td>Array of apache2 virtualhost aliases</td>
-    <td><tt>vicnum</tt></td>
-  </tr>
-</table>
+* `['vicnum']['version']` - Vicnum version to deploy
+* `['vicnum']['path']` - Path where application will be deployed
+* `['vicnum']['server_name']` - Apache2 server name
+* `['vicnum']['server_aliases']` - Array of apache2 virtualhost aliases
 
 Usage
 -----
