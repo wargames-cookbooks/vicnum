@@ -1,6 +1,6 @@
 Vicnum Cookbook
 =============
-Deploy a vicnum environment.
+Deploy a vicnum environment. [![Build Status](https://secure.travis-ci.org/wargames-cookbooks/vicnum.png)](http://travis-ci.org/wargames-cookbooks/vicnum)
 
 Requirements
 ------------
