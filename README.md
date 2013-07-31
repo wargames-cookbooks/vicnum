@@ -60,8 +60,8 @@ Just include `vicnum` in your node's `run_list`:
 - First, install dependencies:  
 `bundle install`  
 
-- Run kitchen tests:  
-`bundle exec kitchen test`  
+- Run strainer tests:  
+`bundle exec strainer test`  
 
 Contributing
 ------------
