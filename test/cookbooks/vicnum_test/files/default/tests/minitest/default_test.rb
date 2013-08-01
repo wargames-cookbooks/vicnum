@@ -17,10 +17,10 @@
 # Recipe:: default
 #
 
-require File.expand_path('../support/helpers', __FILE__)
-
 describe "vicnum_test::default" do
-  include Helpers::VicnumTest
+  include MiniTest::Chef::Assertions
+  include MiniTest::Chef::Context
+  include MiniTest::Chef::Resources
 
   it 'vicnum vhost' do
     file(node["apache"]["dir"] + "/sites-available/vicnum.conf").must_exist
