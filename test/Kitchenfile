@@ -1,4 +1,0 @@
-# -*- ruby -*-
-cookbook "vicnum" do
-  configuration "default"
-end

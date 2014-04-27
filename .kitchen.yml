@@ -17,8 +17,6 @@ suites:
 - name: "vicnum13"
   run_list:
   - recipe[vicnum]
-  - recipe[minitest-handler]
-  - recipe[vicnum_test]
   attributes: {
     mysql: {
       server_root_password: vicnum,
@@ -32,8 +30,6 @@ suites:
 - name: "vicnum14"
   run_list:
   - recipe[vicnum]
-  - recipe[minitest-handler]
-  - recipe[vicnum_test]
   attributes: {
     mysql: {
       server_root_password: vicnum,
@@ -47,8 +43,6 @@ suites:
 - name: "vicnum15"
   run_list:
   - recipe[vicnum]
-  - recipe[minitest-handler]
-  - recipe[vicnum_test]
   attributes: {
     mysql: {
       server_root_password: vicnum,
