@@ -36,7 +36,7 @@ web_app "vicnum" do
 end
 
 # Vicnum Install
-vicnum_dl_url = "http://sourceforge.net/projects/vicnum/files/" + node["vicnum"]["version"] + "/" + node["vicnum"]["version"] + ".tar/download"
+vicnum_dl_url = "http://downloads.sourceforge.net/project/vicnum/" + node["vicnum"]["version"] + "/" + node["vicnum"]["version"] + ".tar"
 vicnum_local = Chef::Config[:file_cache_path] + "/" + node["vicnum"]["version"] + ".tar"
 
 remote_file vicnum_local do
