@@ -12,3 +12,8 @@ This file is used to list changes made in each version of vicnum.
 * Running tests with strainer
 * Added travis continuous integration
 * Tests refactoring
+
+## 0.1.2:
+
+* Fixed download link
+* Integration testing with serverspec and test-kitchen
