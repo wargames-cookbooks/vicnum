@@ -5,14 +5,14 @@ describe service('apache2') do
   it { should be_running }
 end
 
-describe file(node["apache"]["dir"] + "/sites-available/vicnum.conf") do
+describe file("/etc/apache2/sites-available/vicnum.conf") do
   it { should be_file }
 end
 
-describe file(node["apache"]["dir"] + "/sites-enabled/vicnum.conf") do
+describe file("/etc/apache2/sites-enabled/vicnum.conf") do
   it { should be_file }
 end
 
-describe file(node["vicnum"]["path"]) do
+describe file("/opt/vicnum") do
   it { should be_directory }
 end
