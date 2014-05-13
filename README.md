@@ -1,6 +1,7 @@
 Vicnum Cookbook
 =============
-Deploy a vicnum environment. [![Build Status](https://secure.travis-ci.org/wargames-cookbooks/vicnum.png)](http://travis-ci.org/wargames-cookbooks/vicnum)
+Deploy a vicnum environment.
+[![Cookbook Version](https://img.shields.io/cookbook/v/vicnum.svg)](https://community.opscode.com/cookbooks/vicnum) [![Build Status](https://secure.travis-ci.org/wargames-cookbooks/vicnum.png)](http://travis-ci.org/wargames-cookbooks/vicnum)
 
 Requirements
 ------------
