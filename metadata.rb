@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,15 +13,21 @@
 # limitations under the License.
 #
 
-name             'vicnum'
-maintainer       'Sliim'
+name 'vicnum'
+maintainer 'Sliim'
 maintainer_email 'sliim@mailoo.org'
-license          'Apache 2.0'
-description      'Installs/Configures Vicnum application'
+license 'Apache 2.0'
+description 'Installs/Configures Vicnum application'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.3'
+version '0.1.3'
 
-depends "apache2"
-depends "mysql"
-depends "php"
-depends "database"
+recipe 'default', 'Common configuration for vicnum application'
+recipe 'vicnum13', 'Specific config for vicnum 1.3 and 1.4'
+recipe 'vicnum15', 'Specific config for vicnum 1.5'
+
+depends 'apache2'
+depends 'mysql'
+depends 'php'
+depends 'database'
+
+supports 'ubuntu'

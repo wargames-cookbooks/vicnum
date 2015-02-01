@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 #
 # Cookbook Name:: vicnum
 # Recipe:: vicnum13
@@ -16,31 +16,33 @@
 # limitations under the License.
 #
 
-include_recipe "mysql::server"
-include_recipe "mysql::client"
-include_recipe "database"
-include_recipe "mysql::ruby"
+include_recipe 'mysql::server'
+include_recipe 'mysql::client'
+include_recipe 'database'
+include_recipe 'mysql::ruby'
 
 mysql_connection_info = {
-  :host => "localhost",
-  :username => "root",
-  :password => "vicnum"
+  host: 'localhost',
+  username: 'root',
+  password: 'vicnum'
 }
 
-mysql_database "vicnum" do
+mysql_database 'vicnum' do
   connection mysql_connection_info
   action :create
 end
 
-mysql_database "Create results table" do
+mysql_database 'Create results table' do
   connection mysql_connection_info
-  database_name "vicnum"
-  sql "create table results (idnum int(4) NOT NULL auto_increment PRIMARY KEY, name char(100), guess int(3) ZEROFILL, count int(2), tod TIMESTAMP );"
+  database_name 'vicnum'
+  sql 'create table results (idnum int(4) NOT NULL '\
+      'auto_increment PRIMARY KEY, name char(100), guess int(3) ZEROFILL, '\
+      'count int(2), tod TIMESTAMP );'
   action :query
 end
 
-mysql_database "Grant root user" do
+mysql_database 'Grant root user' do
   connection mysql_connection_info
-  sql "grant all on *.* to root@localhost IDENTIFIED BY 'vicnum';"
+  sql 'grant all on *.* to root@localhost IDENTIFIED BY "vicnum";'
   action :query
 end

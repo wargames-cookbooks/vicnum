@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 #
 # Cookbook Name:: vicnum
 # Recipe:: default
@@ -16,49 +16,51 @@
 # limitations under the License.
 #
 
-include_recipe "apache2"
-include_recipe "php"
-include_recipe "php::module_mysql"
-include_recipe "apache2::mod_php5"
-include_recipe "apache2::mod_perl"
+include_recipe 'apache2'
+include_recipe 'php'
+include_recipe 'php::module_mysql'
+include_recipe 'apache2::mod_php5'
+include_recipe 'apache2::mod_perl'
 
-apache_site "default" do
-    enable false
+apache_site 'default' do
+  enable false
 end
 
-web_app "vicnum" do
-  cookbook "vicnum"
+web_app 'vicnum' do
+  cookbook 'vicnum'
   enable true
-  docroot node["vicnum"]["path"]
-  server_name node["vicnum"]["server_name"]
-  server_aliases node["vicnum"]["server_aliases"]
+  docroot node['vicnum']['path']
+  server_name node['vicnum']['server_name']
+  server_aliases node['vicnum']['server_aliases']
 end
 
 # Vicnum Install
-vicnum_dl_url = "http://downloads.sourceforge.net/project/vicnum/" + node["vicnum"]["version"] + "/" + node["vicnum"]["version"] + ".tar"
-vicnum_local = Chef::Config[:file_cache_path] + "/" + node["vicnum"]["version"] + ".tar"
+vicnum_dl_url = 'http://downloads.sourceforge.net/project/vicnum/'\
+                "#{node['vicnum']['version']}/#{node['vicnum']['version']}.tar"
+vicnum_local = "#{Chef::Config[:file_cache_path]}/"\
+               "#{node['vicnum']['version']}.tar"
 
 remote_file vicnum_local do
   source vicnum_dl_url
-  mode "0644"
+  mode '0644'
 end
 
-directory node["vicnum"]["path"] do
-  owner "root"
-  group "root"
-  mode "0755"
+directory node['vicnum']['path'] do
+  owner 'root'
+  group 'root'
+  mode '0755'
   action :create
   recursive true
 end
 
-execute "untar-vicnum" do
+execute 'untar-vicnum' do
   cwd node['vicnum']['path']
-  command "tar xf " + vicnum_local
+  command "tar xf #{vicnum_local}"
 end
 
-case node["vicnum"]["version"]
-when "vicnum13", "vicnum14"
-  include_recipe "vicnum::vicnum13"
-when "vicnum15"
-  include_recipe "vicnum::vicnum15"
+case node['vicnum']['version']
+when 'vicnum13', 'vicnum14'
+  include_recipe 'vicnum::vicnum13'
+when 'vicnum15'
+  include_recipe 'vicnum::vicnum15'
 end

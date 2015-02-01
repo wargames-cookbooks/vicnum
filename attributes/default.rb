@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 #
 # Cookbook Name:: vicnum
 # Attributes:: default
@@ -17,9 +17,9 @@
 #
 
 # Vicnum application
-default["vicnum"]["version"] = "vicnum15"
-default["vicnum"]["path"]    = "/opt/vicnum"
+default['vicnum']['version'] = 'vicnum15'
+default['vicnum']['path']    = '/opt/vicnum'
 
 # Apache2 configuration
-default["vicnum"]["server_name"] = "vicnum"
-default["vicnum"]["server_aliases"] = [ "vicnum" ]
+default['vicnum']['server_name'] = 'vicnum'
+default['vicnum']['server_aliases'] = ['vicnum']
