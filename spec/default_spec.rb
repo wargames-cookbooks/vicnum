@@ -62,7 +62,16 @@ describe 'vicnum::default' do
       expect(subject).to create_mysql_service('default')
         .with(port: '3306',
               version: '5.5',
-              initial_root_password: 'toor')
+              initial_root_password: 'vicnum')
+    end
+
+    it 'should drop vicnum database' do
+      expect(subject).to drop_mysql_database('drop-vicnum-db')
+        .with(database_name: 'vicnum',
+              connection: { host: 'localhost',
+                            username: 'root',
+                            password: 'vicnum',
+                            socket: '/run/mysql-default/mysqld.sock' })
     end
 
     it 'should create vicnum database' do
@@ -70,7 +79,8 @@ describe 'vicnum::default' do
         .with(database_name: 'vicnum',
               connection: { host: 'localhost',
                             username: 'root',
-                            password: 'toor' })
+                            password: 'vicnum',
+                            socket: '/run/mysql-default/mysqld.sock' })
     end
 
     it 'should populate vicnum database' do
@@ -78,16 +88,8 @@ describe 'vicnum::default' do
         .with(database_name: 'vicnum',
               connection: { host: 'localhost',
                             username: 'root',
-                            password: 'toor' })
-    end
-
-    it 'should grant vicnum database' do
-      expect(subject).to query_mysql_database('grant-vicnum-db')
-        .with(database_name: 'vicnum',
-              sql: 'grant all on *.* to root@localhost IDENTIFIED BY "vicnum";',
-              connection: { host: 'localhost',
-                            username: 'root',
-                            password: 'toor' })
+                            password: 'vicnum',
+                            socket: '/run/mysql-default/mysqld.sock' })
     end
   end
 
@@ -120,12 +122,8 @@ describe 'vicnum::default' do
         .with(database_name: 'vicnum',
               connection: { host: 'localhost',
                             username: 'root',
-                            password: 'toor' })
-    end
-
-    it 'should remove sql temporary directory' do
-      expect(subject).to delete_directory('remove-sql-dir')
-        .with(path: '/opt/vicnum-app/sql')
+                            password: 'vicnum',
+                            socket: '/run/mysql-default/mysqld.sock' })
     end
   end
 end

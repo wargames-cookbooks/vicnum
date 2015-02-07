@@ -22,34 +22,34 @@ action :create do
   connection_info = {
     host: 'localhost',
     username: 'root',
-    password: 'toor'
+    password: 'vicnum',
+    socket: '/run/mysql-default/mysqld.sock'
   }
 
   mysql_service 'default' do
     port '3306'
     version '5.5'
-    initial_root_password 'toor'
+    initial_root_password 'vicnum'
     action [:create, :start]
   end
 
-  mysql_database 'create-vicnum-db' do
-    database_name 'vicnum'
+  mysql_database 'drop-vicnum-db' do
     connection connection_info
+    database_name 'vicnum'
+    action :drop
+  end
+
+  mysql_database 'create-vicnum-db' do
+    connection connection_info
+    database_name 'vicnum'
   end
 
   mysql_database 'populate-vicnum-db' do
-    database_name 'vicnum'
     connection connection_info
+    database_name 'vicnum'
     sql 'create table results (idnum int(4) NOT NULL '\
         'auto_increment PRIMARY KEY, name char(100), guess int(3) ZEROFILL, '\
         'count int(2), tod TIMESTAMP );'
-    action :query
-  end
-
-  mysql_database 'grant-vicnum-db' do
-    database_name 'vicnum'
-    connection connection_info
-    sql 'grant all on *.* to root@localhost IDENTIFIED BY "vicnum";'
     action :query
   end
 
@@ -63,15 +63,10 @@ action :create do
     end
 
     mysql_database 'populate-vicnum-db-from-dump' do
-      database_name 'vicnum'
       connection connection_info
-      sql { ::File.open(node['vicnum']['path'] + '/sql/install.sql').read }
+      database_name 'vicnum'
+      sql { ::File.open("#{node['vicnum']['path']}/sql/install.sql").read }
       action :query
-    end
-
-    directory 'remove-sql-dir' do
-      path "#{node['vicnum']['path']}/sql"
-      action :delete
     end
   end
 
