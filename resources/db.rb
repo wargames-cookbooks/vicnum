@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: vicnum
-# Attributes:: default
+# Resource:: db
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,8 +16,11 @@
 # limitations under the License.
 #
 
-default['vicnum']['version'] = 'vicnum15'
-default['vicnum']['path']    = '/opt/vicnum'
+actions :create
+attribute :name, kind_of: String
 
-default['vicnum']['server_name'] = 'vicnum'
-default['vicnum']['server_aliases'] = ['vicnum']
+def initialize(*args)
+  super
+  @action = :create
+  @resource_name = :vicnum_db
+end

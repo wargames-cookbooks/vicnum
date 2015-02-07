@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: vicnum
-# Attributes:: default
+# Library:: matchers
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 # limitations under the License.
 #
 
-default['vicnum']['version'] = 'vicnum15'
-default['vicnum']['path']    = '/opt/vicnum'
-
-default['vicnum']['server_name'] = 'vicnum'
-default['vicnum']['server_aliases'] = ['vicnum']
+if defined?(ChefSpec)
+  def create_vicnum_db(name)
+    ChefSpec::Matchers::ResourceMatcher.new(:vicnum_db, :create, name)
+  end
+end

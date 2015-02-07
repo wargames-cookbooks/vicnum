@@ -21,17 +21,6 @@ Requirements
 - `Vicnum 1.4`
 - `Vicnum 1.5`
 
-#### Mysql configuration
-
-Actually, you must setup mysql root password to `vicnum`.
-```json
-{
-  "mysql": {
-    "server_root_password": "vicnum"
-  }
-}
-```
-
 Attributes
 ----------
 
