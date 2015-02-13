@@ -117,13 +117,11 @@ describe 'vicnum::default' do
         .with(source: 'vicnum15.sql')
     end
 
-    it 'should populate vicnum database with dump file' do
-      expect(subject).to query_mysql_database('populate-vicnum-db-from-dump')
-        .with(database_name: 'vicnum',
-              connection: { host: 'localhost',
-                            username: 'root',
-                            password: 'vicnum',
-                            socket: '/run/mysql-default/mysqld.sock' })
+    it 'should populate vicnum database with mysql dump' do
+      expect(subject).to run_execute('import-mysql-dump')
+        .with(command: 'mysql -h localhost -u root -pvicnum '\
+                       '--socket /run/mysql-default/mysqld.sock '\
+                       'vicnum < /opt/vicnum-app/sql/install.sql')
     end
   end
 end

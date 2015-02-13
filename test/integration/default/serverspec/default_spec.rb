@@ -34,5 +34,5 @@ describe file '/opt/vicnum' do
 end
 
 describe command 'wget -O - http://127.0.0.1' do
-  its(:stdout) { should match(/Welcome to the Vicnum Game/) }
+  its(:stdout) { should match(/Welcome to the Vicnum Game|Welcome to Vicnum/) }
 end

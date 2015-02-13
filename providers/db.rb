@@ -62,11 +62,10 @@ action :create do
       source 'vicnum15.sql'
     end
 
-    mysql_database 'populate-vicnum-db-from-dump' do
-      connection connection_info
-      database_name 'vicnum'
-      sql { ::File.open("#{node['vicnum']['path']}/sql/install.sql").read }
-      action :query
+    execute 'import-mysql-dump' do
+      command 'mysql -h localhost -u root -pvicnum '\
+              '--socket /run/mysql-default/mysqld.sock '\
+              "vicnum < #{node['vicnum']['path']}/sql/install.sql"
     end
   end
 
