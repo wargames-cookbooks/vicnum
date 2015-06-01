@@ -22,8 +22,7 @@ include_recipe 'php::module_mysql'
 include_recipe 'apache2::mod_php5'
 include_recipe 'apache2::mod_perl'
 
-package 'libmysqlclient-dev'
-gem_package 'mysql2'
+mysql2_chef_gem 'default'
 
 apache_site 'default' do
   enable false

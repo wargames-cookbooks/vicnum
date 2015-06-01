@@ -27,6 +27,7 @@ recipe 'vicnum15', 'Database configuration for vicnum 1.5'
 
 depends 'apache2'
 depends 'mysql'
+depends 'mysql2_chef_gem'
 depends 'php'
 depends 'database'
 

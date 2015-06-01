@@ -15,6 +15,7 @@ Requirements
 - `mysql` - https://supermarket.chef.io/cookbooks/mysql
 - `php` - https://supermarket.chef.io/cookbooks/php
 - `database` - https://supermarket.chef.io/cookbooks/database
+- `mysql2_chef_gem` - https://supermarket.chef.io/cookbooks/mysql2_chef_gem
 
 #### Supported versions
 - `Vicnum 1.3`
@@ -33,7 +34,7 @@ Attributes
 <th>Default</th>
 </tr>
 <tr>
-<td><tt>['vincum']['version']</tt></td>
+<td><tt>['vicnum']['version']</tt></td>
 <td>String</td>
 <td>Vicnum version to deploy</td>
 <td><tt>vicnum15</tt></td>
