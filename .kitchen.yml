@@ -12,12 +12,6 @@ platforms:
     - recipe[apt]
 
 suites:
-- name: vicnum13
-  run_list:
-  - recipe[vicnum]
-  attributes:
-    vicnum:
-      version: vicnum13
 - name: vicnum14
   run_list:
   - recipe[vicnum]

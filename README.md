@@ -18,7 +18,6 @@ Requirements
 - `mysql2_chef_gem` - https://supermarket.chef.io/cookbooks/mysql2_chef_gem
 
 #### Supported versions
-- `Vicnum 1.3`
 - `Vicnum 1.4`
 - `Vicnum 1.5`
 

@@ -22,8 +22,6 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.3'
 
 recipe 'default', 'Common configuration for vicnum application'
-recipe 'vicnum13', 'Database configuration for vicnum 1.3 and 1.4'
-recipe 'vicnum15', 'Database configuration for vicnum 1.5'
 
 depends 'apache2'
 depends 'mysql'
