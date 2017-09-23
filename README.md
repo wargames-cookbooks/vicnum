@@ -7,8 +7,8 @@ Requirements
 ------------
 
 #### Platform
-- `Ubuntu 12.04`
-- `Debian 7.6`
+- `Ubuntu 14.04`
+- `Debian 8.7`
 
 #### Cookbooks
 - `apache2` - https://supermarket.chef.io/cookbooks/apache2
@@ -25,38 +25,12 @@ Attributes
 ----------
 
 #### vicnum::default
-<table>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-<tr>
-<td><tt>['vicnum']['version']</tt></td>
-<td>String</td>
-<td>Vicnum version to deploy</td>
-<td><tt>vicnum15</tt></td>
-</tr>
-<tr>
-<td><tt>['vicnum']['path']</tt></td>
-<td>String</td>
-<td>Path where application will be deployed</td>
-<td><tt>/opt/vicnum</tt></td>
-</tr>
-<tr>
-<td><tt>['vicnum']['server_name']</tt></td>
-<td>String</td>
-<td>Apache2 server name</td>
-<td><tt>vicnum</tt></td>
-</tr>
-<tr>
-<td><tt>['vicnum']['server_aliases']</tt></td>
-<td>Array</td>
-<td>Array of apache2 virtualhost aliases</td>
-<td><tt>[vicnum]</tt></td>
-</tr>
-</table>
+| Key                                 | Type   |  Description                                                      |
+| ----------------------------------- | ------- | ---------------------------------------------------------------- |
+| `[vicnum][version]`                 | String  | Vicnum version to deploy (default: `vicnum15`)                   |
+| `[vicnum][path]`                    | String  | Path where application will be deployed (default: `/opt/vicnum`) |
+| `[vicnum][apache2][server_name]`    | String  | Apache2 server name (default: `vicnum`)                          |
+| `[vicnum][apache2][server_aliases]` | Array   | Array of apache2 virtualhost aliases (default: `[vicnum]`)       |
 
 Usage
 -----

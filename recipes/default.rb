@@ -22,7 +22,9 @@ include_recipe 'php::module_mysql'
 include_recipe 'apache2::mod_php'
 include_recipe 'apache2::mod_perl'
 
-mysql2_chef_gem 'default'
+mysql2_chef_gem 'default' do
+  package_version '5.5'
+end
 
 apache_site 'default' do
   enable false
