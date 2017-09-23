@@ -16,9 +16,10 @@
 name 'vicnum'
 maintainer 'Sliim'
 maintainer_email 'sliim@mailoo.org'
-license 'Apache 2.0'
+license 'Apache-2.0'
 description 'Installs/Configures Vicnum application'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+chef_version '>= 12.5' if respond_to?(:chef_version)
 version '0.2.0'
 
 recipe 'default', 'Common configuration for vicnum application'
@@ -31,3 +32,8 @@ depends 'database'
 
 supports 'ubuntu'
 supports 'debian'
+
+source_url 'https://github.com/wargames-cookbooks/vicnum' if
+  respond_to?(:source_url)
+issues_url 'https://github.com/wargames-cookbooks/vicnum/issues' if
+  respond_to?(:issues_url)
