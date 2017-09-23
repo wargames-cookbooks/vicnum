@@ -6,7 +6,7 @@ gem 'berkshelf'
 gem 'rake'
 
 group :lint do
-  gem 'rubocop'
+  gem 'cookstyle'
   gem 'foodcritic'
 end
 

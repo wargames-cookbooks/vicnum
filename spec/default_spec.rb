@@ -16,9 +16,13 @@ describe 'vicnum::default' do
   context 'all version' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache',
-                               step_into: ['vicnum_db']) do |node|
-        node.set['vicnum']['version'] = '1.0'
-        node.set['vicnum']['path'] = '/opt/vicnum-app'
+                               step_into: %w(vicnum_db),
+                               platform: 'debian',
+                               version: '9.0') do |node|
+        node.override['apache']['mpm'] = 'prefork'
+        node.override['php']['packages'] = %w()
+        node.override['vicnum']['version'] = '1.0'
+        node.override['vicnum']['path'] = '/opt/vicnum-app'
       end.converge(described_recipe)
     end
 
@@ -26,7 +30,7 @@ describe 'vicnum::default' do
       expect(subject).to include_recipe('apache2')
       expect(subject).to include_recipe('php')
       expect(subject).to include_recipe('php::module_mysql')
-      expect(subject).to include_recipe('apache2::mod_php5')
+      expect(subject).to include_recipe('apache2::mod_php')
       expect(subject).to include_recipe('apache2::mod_perl')
     end
 
@@ -92,9 +96,14 @@ describe 'vicnum::default' do
   context 'version 1.5' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache',
-                               step_into: ['vicnum_db']) do |node|
-        node.set['vicnum']['version'] = 'vicnum15'
-        node.set['vicnum']['path'] = '/opt/vicnum-app'
+                               step_into: %w(vicnum_db),
+                               platform: 'debian',
+                               version: '9.0') do |node|
+        node.override['apache']['mpm'] = 'prefork'
+        node.override['php']['mysql']['package'] = ''
+        node.override['php']['packages'] = %w()
+        node.override['vicnum']['version'] = 'vicnum15'
+        node.override['vicnum']['path'] = '/opt/vicnum-app'
       end.converge(described_recipe)
     end
 

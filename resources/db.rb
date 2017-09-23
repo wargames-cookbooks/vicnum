@@ -17,10 +17,7 @@
 #
 
 actions :create
-attribute :name, kind_of: String
+default_action :create
+resource_name :vicnum_db
 
-def initialize(*args)
-  super
-  @action = :create
-  @resource_name = :vicnum_db
-end
+attribute :name, kind_of: String

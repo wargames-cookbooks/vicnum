@@ -16,6 +16,8 @@
 # limitations under the License.
 #
 
+use_inline_resources
+
 include Chef::DSL::IncludeRecipe
 
 action :create do
@@ -23,7 +25,7 @@ action :create do
     host: 'localhost',
     username: 'root',
     password: 'vicnum',
-    socket: '/run/mysql-default/mysqld.sock'
+    socket: '/run/mysql-default/mysqld.sock',
   }
 
   mysql_service 'default' do
@@ -68,6 +70,4 @@ action :create do
               "vicnum < #{node['vicnum']['path']}/sql/install.sql"
     end
   end
-
-  new_resource.updated_by_last_action(true)
 end

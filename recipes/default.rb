@@ -19,7 +19,7 @@
 include_recipe 'apache2'
 include_recipe 'php'
 include_recipe 'php::module_mysql'
-include_recipe 'apache2::mod_php5'
+include_recipe 'apache2::mod_php'
 include_recipe 'apache2::mod_perl'
 
 mysql2_chef_gem 'default'
