@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of vicnum.
 
+## 0.3.0:
+
+* Chef 13 support
+* Supported platforms:
+  - Ubuntu 14.04
+  - Debian 8.7
+
 ## 0.2.0:
 
 * Code improvements
